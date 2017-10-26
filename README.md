@@ -32,14 +32,14 @@ Be sure to utilize the [MYSQL Heroku Deployment Guide](../Supplemental/MySQLHero
 6. Install the method-override npm package: `npm install method-override --save`.**
 7. Install the body-parser npm package: `npm install body-parser --save`. **
 8. Install MySQL npm package: `npm install mysql --save`.
-9. Require the following npm packages inside of the server.js file:
+9. Require the following npm packages inside of the server.js file:**
    * express
    * method-override
    * body-parser
 
 #### DB Setup
 
-1. Inside your `smoothie` directory, create a folder named `db`.
+1. Inside your `smoothie` directory, create a folder named `db`. **
 2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
    * Create the `smoothies_db`.
    * Switch to or use the `smoothies_db`.
