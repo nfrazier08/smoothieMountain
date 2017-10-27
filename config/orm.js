@@ -1,59 +1,45 @@
 var db_connect= require("../config/connection.js");
 
-
+//Object Relational Mapper
+//You ORM is supposed to be less specific, with question marks for the queries and what have you
+//The model is supposed to be more specific with what you are looking for
+// ?? is used for table and column names, it escapes them with backticks. ? is for ordinary values.
+// SELECT column1, column2, ...FROM table_name;
 var orm = {
-    //Select all smoothies
+    //Select All Smoothie
     selectAll: function(selectTable, cb){
-        db_connect.query(`SELECT * FROM ${selectTable};`, (err, res) => {
-            if(err) throw(err);
-            cb(res);
-        })        
+        db_connect.query("SELECT * FROM ??;", cb)
     },
 
-    //Select one smoothie
-    selectOne: function(selectTable, selectId, cb){
-        db_connect.query(`SELECT * FROM ${selectTable} WHERE smoothie_id = ${selectId};`, (err, res) => {
-            if (err) throw(err);
-            cb(res);
-        })
-    },
-
-    //Create a smoothie
-    createSmoothie: function(smoothie_name, cb){
-        db_connect.query(`INSERT INTO smoothies (smoothie_name) VALUES ${smoothie_name};`, (err, res) => {
-            if(err) throw (err);
-            console.log(`Smoothie name ${smoothie_name} has been created`)
-            cd(res);
-        })
-    },
-
-    //Update if smoothie name
-    updateSmoothie: function(smoothieId, newSmoothieName, cb){
-        db.connect.query(`UPDATE smoothies SET smoothie_name = ${newSmoothieName} WHERE smoothie_id = ${smoothieId};`, (err, res) => {
-            if(err) throw (err);
-            console.log(`Smoothie ${smoothieId} has been updated with the name ${newSmoothieName}`)
-            cb(res);
-        })
-    },
-
-    //Update slurp status
-    smoothieSlurped: function(smoothieId, slurpStatus, cb){
-        db_connect.query(`UPDATE smoothies SET smoothie_slurped = ${slurpStatus} WHERE smoothie_id = ${smoothieId};`, (err, res) => {
-            if(err) throw (err);
-            console.log(`${smoothieId} Smoothie has been slurped!`)
-            cb(res);
-        })
+    //Select One Smoothie
+    selectOne: function(whatToSelect, selectTable, selectId, cb){
+        db_connect.query("SELECT * FROM ?? WHERE ?? = ?;", cb)
     }, 
 
-    //Delete smoothie
-    deleteSmoothie: function(smoothieId, cb){
-        db_connect.query(`DELETE FROM smoothies WHERE smoothie_id = ${smoothieId};`, (err, res) => {
-            if (err) throw (err);
-            console.log(`${smoothieId} Smoothie has been deleted!`)
-            cb (res);
-        })
+    //Create a Smoothie
+    createOne: function(selectTable, nameSelect, cb){
+        db_connect.query("INSERT INTO ?? (?) VALUES ?;", cb)
+    }, 
+
+    //Update Smoothie Name
+    updateName: function(selectTable, selectName, newName, cb){
+        db_connect.query("UPDATE ?? SET ? = ?;", cb)
+    },
+
+    //Update Slurp Status
+    updateStatus: function(selectTable, selectId, selectStatus, cb){
+        db_connect.query("UPDATE ?? SET ? = ? WHERE ? =?;", cb)
+    },
+
+    //Delete Smoothie
+    deleteOne: function(selectTable, selectId, cb){
+        db_connect.query("DELETE FROM ?? WHERE ? = ?;", cb)
     }
 }
+
+
+
+
 
 // * Export the ORM object in `module.exports`.
 module.exports = orm;
