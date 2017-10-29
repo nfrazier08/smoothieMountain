@@ -8,32 +8,35 @@ var db_connect= require("../config/connection.js");
 var orm = {
     //Select All Smoothie
     selectAll: function(selectTable, cb){
-        db_connect.query("SELECT * FROM ??;", cb)
+        db_connect.query(`SELECT * FROM ${selectTable}`, function(err, res){
+            if(err) throw err;
+            cb(res);
+        })
     },
 
     //Select One Smoothie
     selectOne: function(selectTable, selectId, cb){
-        db_connect.query("SELECT * FROM ?? WHERE ?? = ?;", cb)
+        db_connect.query(`SELECT * FROM ?? WHERE ?? = ?`, cb)
     }, 
 
     //Create a Smoothie
     createOne: function(selectTable, nameSelect, cb){
-        db_connect.query("INSERT INTO ?? (?) VALUES ?;", cb)
+        db_connect.query(`INSERT INTO ?? (?) VALUES ?`, cb)
     }, 
 
     //Update Smoothie Name
     updateName: function(selectTable, selectName, newName, cb){
-        db_connect.query("UPDATE ?? SET ?? = ?;", cb)
+        db_connect.query(`UPDATE ?? SET ?? = ?`, cb)
     },
 
     //Update Slurp Status
     updateStatus: function(selectTable, selectId, selectStatus, cb){
-        db_connect.query("UPDATE ?? SET ?? = ? WHERE ? =?;", cb)
+        db_connect.query(`UPDATE ?? SET ?? = ? WHERE ? =?`, cb)
     },
 
     //Delete Smoothie
     deleteOne: function(selectTable, selectId, cb){
-        db_connect.query("DELETE FROM ?? WHERE ? = ?;", cb)
+        db_connect.query(`DELETE FROM ?? WHERE ? = ?`, cb)
     }
 }
 
