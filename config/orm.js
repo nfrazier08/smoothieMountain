@@ -12,7 +12,7 @@ var orm = {
     },
 
     //Select One Smoothie
-    selectOne: function(whatToSelect, selectTable, selectId, cb){
+    selectOne: function(selectTable, selectId, cb){
         db_connect.query("SELECT * FROM ?? WHERE ?? = ?;", cb)
     }, 
 
@@ -23,12 +23,12 @@ var orm = {
 
     //Update Smoothie Name
     updateName: function(selectTable, selectName, newName, cb){
-        db_connect.query("UPDATE ?? SET ? = ?;", cb)
+        db_connect.query("UPDATE ?? SET ?? = ?;", cb)
     },
 
     //Update Slurp Status
     updateStatus: function(selectTable, selectId, selectStatus, cb){
-        db_connect.query("UPDATE ?? SET ? = ? WHERE ? =?;", cb)
+        db_connect.query("UPDATE ?? SET ?? = ? WHERE ? =?;", cb)
     },
 
     //Delete Smoothie
@@ -36,10 +36,6 @@ var orm = {
         db_connect.query("DELETE FROM ?? WHERE ? = ?;", cb)
     }
 }
-
-
-
-
 
 // * Export the ORM object in `module.exports`.
 module.exports = orm;
