@@ -49,10 +49,22 @@ router.post("/api/smoothie", function(req, res){
         //THIS IS NOT CONSOLING THE NEW SMOOTHIE ADDED, BUT RATHER A STRANGE DATA PACKET!
         console.log(smoothieObject);
         res.render("index", smoothieObject);
+
+        //You can add: PULLED FROM CATS ASSIGNMENT- NOT SURE IF NEEDED
+        // if (result.changedRows == 0) {
+        //     // If no rows were changed, then the ID must not exist, so 404
+        //     return res.status(404).end();
+        //   } else {
+        //     res.status(200).end();
     })
 })
 
-//PUT new smoothie data the the database- UPDATE
+//PUT- UPDATE new smoothie data the the database
+    //Essentially here, you can update the name of a smoothie in the database
+router.put("/api/smoothie/:id", function (req, res){
+    var requestedSmoothieId = req.params.name;
+    smoothieModel.
+})
 
 
 //PUT new slurp status to the database- UPDATE
