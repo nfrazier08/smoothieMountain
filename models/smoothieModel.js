@@ -11,8 +11,9 @@ var smoothieModel = {
     }, 
     
     //Call orm for one
+    //I took out "smoothies" before tableNeeded and IT WORKED!!!!
     selectOne: function(tableNeeded, smoothieId, cb){
-        orm.selectOne("smoothies", tableNeeded, smoothieId, function(res){
+        orm.selectOne(tableNeeded, smoothieId, function(res){
             cb(res);
         });
     }, 

@@ -12,8 +12,18 @@
                 Smoothie Id: {{this.smoothie_id}}
             </p>
         </li> 
-    {{/each}}     
+    {{/each}}   
+</ul>  
 
+    <!--Create a button here that will submit user information to the database!!!!!-->
+    <h2>Add A Smoothie</h2>
+        <form class="create-form">
+            <div class="form-group">
+                <label for="createSmoothie">Smoothie Name: </label>   
+                <input type="text" id="createSmoothie" name = "name"> 
+            </div>
 
+            <button type="submit" id="smoothieButton">Add Smoothie</button>
 
-</ul>
+        </form>
+
