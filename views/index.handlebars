@@ -1,15 +1,15 @@
 <h1> Raw Smoothie HTML Page</h1>
 <ul>
-    {{#each Smoothies}}
+    {{#each smoothies}}
         <li>
             <p>
-                Smoothie Name: {{smoothies.smoothie_name}}
+                Smoothie Name: {{this.smoothie_name}}
             </p>
         </li>
 
         <li>
             <p>
-                Smoothie Id: {{smoothies.smoothie_id}}
+                Smoothie Id: {{this.smoothie_id}}
             </p>
         </li> 
     {{/each}}     
