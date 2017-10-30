@@ -24,7 +24,7 @@ var orm = {
 
     //Create a Smoothie
     createOne: function(selectTable, nameSelected, cb){
-        db_connect.query(`INSERT INTO ${selectTable} (smoothie_name) VALUES ${nameSelected}`, function(err, res){
+        db_connect.query(`INSERT INTO ${selectTable} (smoothie_name) VALUES ('${nameSelected}')`,function(err, res){
             if (err) throw err;
             cb(res);
         })

@@ -35,10 +35,18 @@ router.get("/:id", function(req, res){
     //Use API in the route because you're interacting with the server
 router.post("/api/smoothie", function(req, res){
     var newSmoothie = req.body
-    smoothieModel.createOne(newSmoothie, function(data){
+    // NO! smoothieModel.createOne(newSmoothie, function(data){
+    //NO! smoothieModel.createOne("smoothies",newSmoothie, function(data){
+    // What are you trying to get from AJAX???
+        //Pass in the newSmoothie, which is the body on the request and you are targetting the name, 
+            //Which was defined in createdNewSmoothie, after value was trimmed
+            //Getting SQL  SYNTAX ERROR
+                //SQL ERROR FIXED!!!
+    smoothieModel.createOne(newSmoothie.createdNewSmoothie, function(data){
         var smoothieObject = {
             smoothies: data
         };
+        //THIS IS NOT CONSOLING THE NEW SMOOTHIE ADDED, BUT RATHER A STRANGE DATA PACKET!
         console.log(smoothieObject);
         res.render("index", smoothieObject);
     })

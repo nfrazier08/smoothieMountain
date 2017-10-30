@@ -12,14 +12,14 @@ $("#smoothieButton").on("click", function(){
     }
 
     //THIS WORKS!!! GETTING CORRECT NEW SMOOTHIE CREATED!!
-    console.log(createdSmoothieInfo);
+    // console.log(createdSmoothieInfo);
         $.ajax({
             type: "POST",
             //Route for app.POST in apiRoutes
             url: "/api/smoothie",
             data: createdSmoothieInfo,
             success: 
-                //THIS WORKS! you have a problem with your API POST call!!!
+                // THIS WORKS! you have a problem with your API POST call!!!
                 console.log(createdSmoothieInfo)
                 //Eventually, I will want to reload the page, 
                     //For now, check to see if you are getting the correct information upon AJAX success

@@ -18,7 +18,8 @@ var smoothieModel = {
         });
     }, 
 
-    //Call orm for createOne
+    //Call orm for createOne   
+    //I took out "smoothies" before tableNeeded  
     createOne: function(smoothieName, cb){
         orm.createOne("smoothies", smoothieName, function(res){
             cb(res);
