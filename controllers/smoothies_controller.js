@@ -71,7 +71,7 @@ router.put("/api/smoothie/:id", function (req, res){
     //I took out "smoothies" before newSmoothieName to check if it fixes SQL error
     var requestedSmoothieId = req.params.id;
     var newSmoothieName = req.body;
-    smoothieModel.updateName(newSmoothieName.createdNewSmoothieName, function(data){
+    smoothieModel.updateName("smoothies",newSmoothieName.createdNewSmoothieName, function(data){
         var smoothieObject = {
             smoothies: data
         };
