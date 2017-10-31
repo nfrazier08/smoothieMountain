@@ -27,7 +27,7 @@ $("#smoothieButton").on("click", function(){
         })
 }) //End of create new smoothie click function
 
-
+//Create a click function handler with an ajax response that will lead to the update url
 
 
 })//End of the document.ready() function

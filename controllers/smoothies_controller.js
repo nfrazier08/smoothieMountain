@@ -18,30 +18,22 @@ router.get("/", function(req, res){
     })
 })
 
-//GET one smoothie- READ the smoothie data
-    //THIS WORKS!!!
-router.get("/:id", function(req, res){
-    var requestedSmoothieId = req.params.id
-    smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
-        var smoothieObject = {
-            smoothies: data
-        };
-        console.log(smoothieObject);
-        res.render("index", smoothieObject);
-    })
-})
+//GET one smoothie- READ the smoothie data   
+// router.get("/smoothie/:id", function(req, res){
+//     var requestedSmoothieId = req.params.id
+//     smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
+//         var smoothieObject = {
+//             smoothies: data
+//         };
+//         console.log(smoothieObject);
+//         res.render("index", smoothieObject);
+//     })
+// })
 
 //POST NEW smoothie to database- CREATE
     //Use API in the route because you're interacting with the server
 router.post("/api/smoothie", function(req, res){
     var newSmoothie = req.body
-    // NO! smoothieModel.createOne(newSmoothie, function(data){
-    //NO! smoothieModel.createOne("smoothies",newSmoothie, function(data){
-    // What are you trying to get from AJAX???
-        //Pass in the newSmoothie, which is the body on the request and you are targetting the name, 
-            //Which was defined in createdNewSmoothie, after value was trimmed
-            //Getting SQL  SYNTAX ERROR
-                //SQL ERROR FIXED!!!
     smoothieModel.createOne(newSmoothie.createdNewSmoothie, function(data){
         var smoothieObject = {
             smoothies: data
@@ -49,22 +41,29 @@ router.post("/api/smoothie", function(req, res){
         //THIS IS NOT CONSOLING THE NEW SMOOTHIE ADDED, BUT RATHER A STRANGE DATA PACKET!
         console.log(smoothieObject);
         res.render("index", smoothieObject);
-
-        //You can add: PULLED FROM CATS ASSIGNMENT- NOT SURE IF NEEDED
-        // if (result.changedRows == 0) {
-        //     // If no rows were changed, then the ID must not exist, so 404
-        //     return res.status(404).end();
-        //   } else {
-        //     res.status(200).end();
     })
 })
 
 //PUT- UPDATE new smoothie data the the database
     //Essentially here, you can update the name of a smoothie in the database
-router.put("/api/smoothie/:id", function (req, res){
-    var requestedSmoothieId = req.params.name;
-    smoothieModel.
-})
+    //You will need a  GET and a PUT
+    //STEP 1: Get one smoothie id and route to update page
+router.get("/smoothie/:id/", function(req, res){
+        var requestedSmoothieId = req.params.id; 
+        smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
+            var smoothieObject = {
+                smoothies: data
+            };
+            console.log("****");
+            console.log(smoothieObject);
+            res.render("update", smoothieObject);
+        })
+    })
+
+// router.put("/api/smoothie/:id", function (req, res){
+//     var requestedSmoothieId = req.params.name;
+   
+// })
 
 
 //PUT new slurp status to the database- UPDATE
