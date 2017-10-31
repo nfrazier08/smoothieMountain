@@ -30,31 +30,32 @@ $("#smoothieButton").on("click", function(){
         })
 }) //End of create new smoothie click function
 
+
+
 //Create a click function handler with an ajax response that will lead to the update url
 $("#updateNameButton").on("click", function(){
     event.preventDefault();
+
+    var getThisSmoothieId = $(this).attr('thisSmoothieId');
+    console.log(getThisSmoothieId);
     var newSmoothieNameChosen = $("#updateName").val().trim();
-
-    //ID NOT GETTING PASSED IN CORRECTLY!! WHY??
-        //CREATE VARIABLE FOR ID???? and not parameter?
-
     console.log(newSmoothieNameChosen);
-
+   
     // //Put created smoothie name information into an object for the database
-    var newNameInfo = {
-            createdNewSmoothieName: newSmoothieNameChosen
-    }
+    // var newNameInfo = {
+    //         createdNewSmoothieName: newSmoothieNameChosen
+    // }
 
-    // //Set up AJAX HERE!!!
-    $.ajax({
-        //PUT is for UPDATE in CRUD
-        type:"PUT", 
-        url: "/api/smoothie/:id", 
-        data: newNameInfo,
-        success:
-            console.log(newNameInfo)
-            //Let User know the name has been changed and route back to main smoothie page
-    })
+    // // //Set up AJAX HERE!!!
+    // $.ajax({
+    //     //PUT is for UPDATE in CRUD
+    //     type:"PUT", 
+    //     url: "/api/smoothie/grabClickedId", 
+    //     data: newNameInfo,
+    //     success:
+    //         console.log(newNameInfo)
+    //         //Let User know the name has been changed and route back to main smoothie page
+    // })
 })
 
 
