@@ -74,11 +74,10 @@ router.put("/api/smoothie/:id", function (req, res){
     //THIS IS GIVING ME WHAT I WANT
     console.log("Below is new name")
     console.log(newName)
-    smoothieModel.updateName(newName.createdNewSmoothieName, smoothieId, function(data){
+    smoothieModel.updateName(smoothieId, newName.createdNewSmoothieName, function(data){
         var smoothieObject = {
             smoothies: data
         };
-        console.log("newSmoothieObject");
         console.log(smoothieObject);
         res.render("index", smoothieObject);
     })   

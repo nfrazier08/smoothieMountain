@@ -27,7 +27,8 @@ var smoothieModel = {
     },
 
     //Call orm to updateName
-    updateName: function(newSmoothieName, smoothieId, cb){
+    //I removed "smoothies" at beginning of parenthesis
+    updateName: function(selectTable, newSmoothieName, smoothieId, cb){
         orm.updateName("smoothies", newSmoothieName, smoothieId, function(res){
             cb(res);
         });

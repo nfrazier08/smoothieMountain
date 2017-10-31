@@ -42,20 +42,20 @@ $("#updateNameButton").on("click", function(){
     console.log(newSmoothieNameChosen);
    
     // //Put created smoothie name information into an object for the database
-    // var newNameInfo = {
-    //         createdNewSmoothieName: newSmoothieNameChosen
-    // }
+    var newNameInfo = {
+            createdNewSmoothieName: newSmoothieNameChosen
+    }
 
     // // //Set up AJAX HERE!!!
-    // $.ajax({
-    //     //PUT is for UPDATE in CRUD
-    //     type:"PUT", 
-    //     url: "/api/smoothie/grabClickedId", 
-    //     data: newNameInfo,
-    //     success:
-    //         console.log(newNameInfo)
-    //         //Let User know the name has been changed and route back to main smoothie page
-    // })
+    $.ajax({
+        //PUT is for UPDATE in CRUD
+        type:"PUT", 
+        url: "/api/smoothie/getThisSmoothieId", 
+        data: newNameInfo,
+        success:
+            console.log(newNameInfo)
+            //Let User know the name has been changed and route back to main smoothie page
+    })
 })
 
 
