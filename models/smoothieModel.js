@@ -27,8 +27,8 @@ var smoothieModel = {
     },
 
     //Call orm to updateName
-    updateName: function(smoothieId, newSmoothieName, cb){
-        orm.updateName("smoothies", smoothieId, newSmoothieName, function(res){
+    updateName: function(newSmoothieName, smoothieId, cb){
+        orm.updateName("smoothies", newSmoothieName, smoothieId, function(res){
             cb(res);
         });
     },

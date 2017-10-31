@@ -35,6 +35,9 @@ $("#updateNameButton").on("click", function(){
     event.preventDefault();
     var newSmoothieNameChosen = $("#updateName").val().trim();
 
+    //ID NOT GETTING PASSED IN CORRECTLY!! WHY??
+        //CREATE VARIABLE FOR ID???? and not parameter?
+
     console.log(newSmoothieNameChosen);
 
     // //Put created smoothie name information into an object for the database
