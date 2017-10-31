@@ -1,6 +1,13 @@
 var express = require("express");
 var router = express.Router();
 
+//REMINDER:
+    //POST -- CREATE
+    //GET -- READ
+    //PUT -- UPDATE
+    //DELETE -- DELETE
+
+
 // Import the model (smoothie.js) to use its database functions.
 var smoothieModel = require("../models/smoothieModel.js");
 
@@ -48,7 +55,7 @@ router.post("/api/smoothie", function(req, res){
     //Essentially here, you can update the name of a smoothie in the database
     //You will need a  GET and a PUT
     //STEP 1: Get one smoothie id and route to update page
-router.get("/smoothie/:id/", function(req, res){
+router.get("/smoothie/:id", function(req, res){
         var requestedSmoothieId = req.params.id; 
         smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
             var smoothieObject = {
@@ -60,10 +67,19 @@ router.get("/smoothie/:id/", function(req, res){
         })
     })
 
-// router.put("/api/smoothie/:id", function (req, res){
-//     var requestedSmoothieId = req.params.name;
+router.put("/api/smoothie/:id", function (req, res){
+    //I took out "smoothies" before newSmoothieName to check if it fixes SQL error
+    var requestedSmoothieId = req.params.id;
+    var newSmoothieName = req.body;
+    smoothieModel.updateName(newSmoothieName.createdNewSmoothieName, function(data){
+        var smoothieObject = {
+            smoothies: data
+        };
+        console.log(smoothieObject);
+        res.render("index", smoothieObject);
+    })
    
-// })
+})
 
 
 //PUT new slurp status to the database- UPDATE

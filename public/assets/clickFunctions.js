@@ -1,12 +1,15 @@
 $( document ).ready(function() {
-
+    //POST -- CREATE
+    //GET -- READ
+    //PUT -- UPDATE
+    //DELETE -- DELETE
  
 //Submit new smoothie 
 $("#smoothieButton").on("click", function(){
     event.preventDefault();
     var newSmoothieDesired = $("#createSmoothie").val().trim();
 
-    //Pur created smoothie information into object
+    //Put created smoothie information into object
     var createdSmoothieInfo = {
         createdNewSmoothie: newSmoothieDesired
     }
@@ -28,6 +31,28 @@ $("#smoothieButton").on("click", function(){
 }) //End of create new smoothie click function
 
 //Create a click function handler with an ajax response that will lead to the update url
+$("#updateNameButton").on("click", function(){
+    event.preventDefault();
+    var newSmoothieNameChosen = $("#updateName").val().trim();
+
+    console.log(newSmoothieNameChosen);
+
+    // //Put created smoothie name information into an object for the database
+    var newNameInfo = {
+            createdNewSmoothieName: newSmoothieNameChosen
+    }
+
+    // //Set up AJAX HERE!!!
+    $.ajax({
+        //PUT is for UPDATE in CRUD
+        type:"PUT", 
+        url: "/api/smoothie/:id", 
+        data: newNameInfo,
+        success:
+            console.log(newNameInfo)
+            //Let User know the name has been changed and route back to main smoothie page
+    })
+})
 
 
 })//End of the document.ready() function
