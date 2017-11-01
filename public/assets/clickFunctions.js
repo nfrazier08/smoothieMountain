@@ -23,10 +23,10 @@ $("#smoothieButton").on("click", function(){
             data: createdSmoothieInfo,
             success: 
                 // THIS WORKS! you have a problem with your API POST call!!!
-                console.log(createdSmoothieInfo)
+                // console.log(createdSmoothieInfo)
                 //Eventually, I will want to reload the page, 
                     //For now, check to see if you are getting the correct information upon AJAX success
-                // location.reload()
+                location.reload()
         })
 }) //End of create new smoothie click function
 
@@ -50,11 +50,28 @@ $("#updateNameButton").on("click", function(){
     $.ajax({
         //PUT is for UPDATE in CRUD
         type:"PUT", 
-        url: "/api/smoothie/getThisSmoothieId", 
+        url: `/api/smoothie/${getThisSmoothieId}`, 
         data: newNameInfo,
         success:
-            console.log(newNameInfo)
+            // console.log(newNameInfo)
+            location.href = "/"
             //Let User know the name has been changed and route back to main smoothie page
+    })
+})
+
+//Handle a click function for delete
+$(".deleteButton").on("click", function(){
+    console.log("Register Button Click");
+    var thisDeleteId = $(this).attr('id');    
+    console.log(thisDeleteId);
+
+    //Set up AJAX HERE!!!
+    $.ajax({
+        //DELETE for CRUD
+        type:"DELETE",
+        url:`/api/smoothie/${thisDeleteId}`,
+        success: 
+            location.href = "/"
     })
 })
 

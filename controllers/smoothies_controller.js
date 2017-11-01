@@ -45,16 +45,12 @@ router.post("/api/smoothie", function(req, res){
         var smoothieObject = {
             smoothies: data
         };
-        //THIS IS NOT CONSOLING THE NEW SMOOTHIE ADDED, BUT RATHER A STRANGE DATA PACKET!
         console.log(smoothieObject);
         res.render("index", smoothieObject);
     })
 })
 
 //PUT- UPDATE new smoothie data the the database
-    //Essentially here, you can update the name of a smoothie in the database
-    //You will need a  GET and a PUT
-    //STEP 1: Get one smoothie id and route to update page
 router.get("/smoothie/:id", function(req, res){
         var requestedSmoothieId = req.params.id; 
         smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
@@ -68,13 +64,12 @@ router.get("/smoothie/:id", function(req, res){
     })
 
 router.put("/api/smoothie/:id", function (req, res){
-    //I took out "smoothies" before newSmoothieName to check if it fixes SQL error
     var smoothieId = req.params.id;
     var newName = req.body;
-    //THIS IS GIVING ME WHAT I WANT
+    
     console.log("Below is new name")
     console.log(newName)
-    smoothieModel.updateName(smoothieId, newName.createdNewSmoothieName, function(data){
+    smoothieModel.updateName("smoothies", smoothieId, newName.createdNewSmoothieName, function(data){
         var smoothieObject = {
             smoothies: data
         };
@@ -87,6 +82,13 @@ router.put("/api/smoothie/:id", function (req, res){
 //PUT new slurp status to the database- UPDATE
 
 //DELETE a smoothie- DELETE
+//I took out smoothies
+router.delete("/api/smoothie/:id", function(req, res){
+    var deleteId = req.params.id;
+    smoothieModel.deleteOne(deleteId, function(data){     
+        res.redirect("/")
+    })
+})
 
 // Export routes for server.js to use.
 module.exports = router;

@@ -1,9 +1,12 @@
 <h1>Raw Smoothie Update Page</h1>
+<h4>Update the smoothie by clicking on its name</h4>
 <ul>
         {{#each smoothies}}
             <li>
                 <p>
-                    Smoothie Name: <a href= "/smoothie/{{smoothie_id}}" id="{{smoothie_name}}">{{smoothie_name}}</a>
+                    Smoothie Name: <a href= "/smoothie/{{smoothie_id}}" id="{{smoothie_name}}">{{smoothie_name}}</a> || 
+                    <button type="submit" id="{{smoothie_id}}" class="deleteButton">X</button>
+                    <img src="/assets/images/fullGlass.jpeg" id="full" class="slurpImage">
                 </p>
             </li>
         {{/each}}

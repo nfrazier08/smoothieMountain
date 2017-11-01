@@ -32,7 +32,10 @@ var orm = {
 
     //Update Smoothie Name
     updateName: function(selectTable, selectId, newName, cb){        
-        db_connect.query(`UPDATE ${selectTable} SET smoothie_name = ${newName} WHERE smoothie_id = ${selectId}`, function(err, res){
+        console.log(selectTable)
+        console.log(selectId)
+        console.log(newName);
+        db_connect.query(`UPDATE ${selectTable} SET smoothie_name = '${newName}' WHERE smoothie_id = ${selectId}`, function(err, res){
             if (err) throw err;
             cb(res);
         })
