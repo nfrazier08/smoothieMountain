@@ -1,10 +1,7 @@
 var db_connect= require("../config/connection.js");
 
 //Object Relational Mapper
-//You ORM is supposed to be less specific, with question marks for the queries and what have you
-//The model is supposed to be more specific with what you are looking for
-// ?? is used for table and column names, it escapes them with backticks. ? is for ordinary values.
-// SELECT column1, column2, ...FROM table_name;
+
 var orm = {
     //Select All Smoothie
     selectAll: function(selectTable, cb){

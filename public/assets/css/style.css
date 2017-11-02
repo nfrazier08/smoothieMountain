@@ -1,4 +1,101 @@
-.slurpImage{
-    width:35px;
-    height: 35px
+body{
+    background-image: url("/assets/images/fruitBackground.jpg");
+    
+}
+
+.instructions{
+    text-align: center;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+#mainBox{
+    background-color: rgba(255,174,66, 0.95);
+    padding:25px;
+    }
+
+ul{
+    list-style: none;
+}
+
+#mainFont{
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 35px;
+}
+
+h1{
+    text-align: center; 
+    border-bottom: 2px dashed black;  
+}
+
+.deleteButton{
+    background-color: #F1694F;
+    border:1px solid black;
+}
+
+#addSection{
+   background-color: white;
+   padding:15px;
+   width:300px;
+   margin-top:15px;
+   border: 6px dashed #4b67b0;
+   font-family: 'Luckiest Guy', cursive;   
+   margin-right:auto;
+   margin-left:auto
+}
+
+#updateSection{
+    background-color: white;
+    margin-right:auto;
+    margin-left:auto;
+    padding: 20px;
+    font-family: 'Luckiest Guy', cursive;
+}
+
+h2{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+   
+}
+
+/* form{
+    margin:0 auto;
+} */
+
+#enterFont{
+    font-size:15px;
+}
+
+#smoothieChange{
+    color:#299f49;
+    text-align: center
+}
+
+#updateFormSection{  
+    margin:auto;  
+    border: 5px dashed #f384a4;
+    width:300px;
+    padding:20px;
+}
+
+.update-form{
+  text-align: center;
+}
+
+#nameFont{
+    font-family: 'Asap Condensed', sans-serif;
+    font-size: 20px;
+}
+
+#footer{
+    background-color: white;
+    font-family: 'Luckiest Guy', cursive;
+    border-top: 3px red solid;
+}
+
+#footerText{
+    margin-left:280px;
+    padding:8px;    
 }

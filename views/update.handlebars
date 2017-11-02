@@ -1,29 +1,21 @@
-<h1>Update Smoothie Name Page</h1>
+<div id="mainBox">
 
-{{!THIS WORKS!!! I AM GETTING THE CORRECT SMOOTHIE I CLICKED ON!!!}}
+        <h1 id="mainFont">Update Smoothie Name</h1>
+        <div id="updateSection">
+            {{#each smoothies}}
+                <h3>Current Smoothie Name: </h3>
+                <h4 id="smoothieChange">{{smoothie_name}}</h4>
 
-{{#each smoothies}}
-    <h3>Current Smoothie Name: {{smoothie_name}}</h3>
+                <h3>Update this smoothie here:</h3>
+                <div id="updateFormSection">
+                   <form class="update-form">
+                        <div class="form-group">
+                            <label for="updateSmoothieName">Create New Smoothie Name: </label>   
+                            <input type="text" id="updateName" name="name"> 
+                        </div>
+                    <button type="button" id="updateNameButton" thisSmoothieId="{{smoothie_id}}" class="btn btn-success">Update Smoothie Name</button>
+                </div>
+            {{/each}}
+        </div>
+</div>
 
-    <h3>Update this smoothie</h3>
-
-        <form class="update-form">
-            <div class="form-group">
-                <label for="updateSmoothieName">Create New Smoothie Name: </label>   
-                <input type="text" id="updateName" name="name"> 
-            </div>
-        <button type="button" id="updateNameButton" thisSmoothieId="{{smoothie_id}}" class="btn btn-success">Update Smoothie Name</button>
-
-
-{{/each}}
-
-{{!-- 
-    
-        <form class="update-form">
-            <div class="form-group">
-                <label for="updateSmoothieName">Create New Smoothie Name: </label>   
-                <input type="text" id="updateName" name = "name"> 
-            </div>
-
-            <button type="submit" id="updateNameButton">Update Smoothie Name</button>
-        </form> --}}

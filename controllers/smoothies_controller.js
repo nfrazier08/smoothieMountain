@@ -1,20 +1,12 @@
 var express = require("express");
 var router = express.Router();
 
-//REMINDER:
-    //POST -- CREATE
-    //GET -- READ
-    //PUT -- UPDATE
-    //DELETE -- DELETE
-
-
 // Import the model (smoothie.js) to use its database functions.
 var smoothieModel = require("../models/smoothieModel.js");
 
 // Create all our routes and set up logic within those routes where required using the router
 
 //READ the data- GET the smoothie data
-    //THIS WORKS!!!!
 router.get("/", function(req, res){
     smoothieModel.selectAll(function(data){
         var smoothieObject = {
@@ -24,18 +16,6 @@ router.get("/", function(req, res){
         res.render("index", smoothieObject);
     })
 })
-
-//GET one smoothie- READ the smoothie data   
-// router.get("/smoothie/:id", function(req, res){
-//     var requestedSmoothieId = req.params.id
-//     smoothieModel.selectOne("smoothies", requestedSmoothieId, function(data){
-//         var smoothieObject = {
-//             smoothies: data
-//         };
-//         console.log(smoothieObject);
-//         res.render("index", smoothieObject);
-//     })
-// })
 
 //POST NEW smoothie to database- CREATE
     //Use API in the route because you're interacting with the server
@@ -78,11 +58,7 @@ router.put("/api/smoothie/:id", function (req, res){
     })   
 })
 
-
-//PUT new slurp status to the database- UPDATE
-
 //DELETE a smoothie- DELETE
-//I took out smoothies
 router.delete("/api/smoothie/:id", function(req, res){
     var deleteId = req.params.id;
     smoothieModel.deleteOne(deleteId, function(data){     

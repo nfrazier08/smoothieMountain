@@ -1,8 +1,4 @@
 $( document ).ready(function() {
-    //POST -- CREATE
-    //GET -- READ
-    //PUT -- UPDATE
-    //DELETE -- DELETE
  
 //Submit new smoothie 
 $("#smoothieButton").on("click", function(){
@@ -14,23 +10,14 @@ $("#smoothieButton").on("click", function(){
         createdNewSmoothie: newSmoothieDesired
     }
 
-    //THIS WORKS!!! GETTING CORRECT NEW SMOOTHIE CREATED!!
-    // console.log(createdSmoothieInfo);
         $.ajax({
             type: "POST",
-            //Route for app.POST in apiRoutes
             url: "/api/smoothie",
             data: createdSmoothieInfo,
             success: 
-                // THIS WORKS! you have a problem with your API POST call!!!
-                // console.log(createdSmoothieInfo)
-                //Eventually, I will want to reload the page, 
-                    //For now, check to see if you are getting the correct information upon AJAX success
                 location.reload()
         })
-}) //End of create new smoothie click function
-
-
+}) 
 
 //Create a click function handler with an ajax response that will lead to the update url
 $("#updateNameButton").on("click", function(){
@@ -46,17 +33,13 @@ $("#updateNameButton").on("click", function(){
             createdNewSmoothieName: newSmoothieNameChosen
     }
 
-    // // //Set up AJAX HERE!!!
-    $.ajax({
-        //PUT is for UPDATE in CRUD
+    $.ajax({        
         type:"PUT", 
         url: `/api/smoothie/${getThisSmoothieId}`, 
         data: newNameInfo,
-        success:
-            // console.log(newNameInfo)
+        success:            
             location.href = "/"
-            //Let User know the name has been changed and route back to main smoothie page
-    })
+        })
 })
 
 //Handle a click function for delete
@@ -65,15 +48,12 @@ $(".deleteButton").on("click", function(){
     var thisDeleteId = $(this).attr('id');    
     console.log(thisDeleteId);
 
-    //Set up AJAX HERE!!!
     $.ajax({
-        //DELETE for CRUD
         type:"DELETE",
         url:`/api/smoothie/${thisDeleteId}`,
         success: 
             location.href = "/"
     })
 })
-
 
 })//End of the document.ready() function

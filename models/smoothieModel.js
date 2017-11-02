@@ -1,6 +1,5 @@
 var orm = require("../config/orm.js");
 
-//create the code that will call the ORM functions using smoothie specific input for the ORM.
 //The model is supposed to be more specific with our queries and what we are looking for
 var smoothieModel = {
     //Call orm for all
@@ -10,24 +9,21 @@ var smoothieModel = {
         });
     }, 
     
-    //Call orm for one
-    //I took out "smoothies" before tableNeeded and IT WORKED!!!!
+    //Call orm for one    
     selectOne: function(tableNeeded, smoothieId, cb){
         orm.selectOne(tableNeeded, smoothieId, function(res){
             cb(res);
         });
     }, 
 
-    //Call orm for createOne   
-    //I took out "smoothies" before tableNeeded  
+    //Call orm for createOne        
     createOne: function(smoothieName, cb){
         orm.createOne("smoothies", smoothieName, function(res){
             cb(res);
         });
     },
 
-    //Call orm to updateName
-    //I removed "smoothies" at beginning of parenthesis
+    //Call orm to updateName    
     updateName: function(selectTable, newSmoothieName, smoothieId, cb){
         orm.updateName("smoothies", newSmoothieName, smoothieId, function(res){
             cb(res);
